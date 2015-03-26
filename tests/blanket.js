@@ -1,22 +1,6 @@
-Skip to content
- This repository
-Explore
-Gist
-Blog
-Help
-@alu0100614220 alu0100614220
- 
- Watch 2
-  Star 0
-  Fork 0
-alu0100769609/AnalizadorLexico
- branch: master  AnalizadorLexico/tests/blanket.js
-@alu0100769609alu0100769609 19 hours ago Creado blanket
-1 contributor
-RawBlameHistory     2221 lines (2111 sloc)  118.443 kb
 /*! blanket - v1.1.5 */
 "undefined" != typeof QUnit && (QUnit.config.autostart = !1),
-function (a) {
+function(a) {
     /*
   Copyright (C) 2013 Ariya Hidayat <ariya.hidayat@gmail.com>
   Copyright (C) 2013 Thaddee Tyl <thaddee.tyl@gmail.com>
@@ -46,10 +30,10 @@ function (a) {
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
   THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-    ! function (b, c) {
+    ! function(b, c) {
         "use strict";
         "function" == typeof a && a.amd ? a(["exports"], c) : c("undefined" != typeof exports ? exports : b.esprima = {})
-    }(this, function (a) {
+    }(this, function(a) {
         "use strict";
 
         function b(a, b) {
@@ -155,14 +139,14 @@ function (a) {
             var b, c, d, e;
             for (b = ic - a, c = {
                 start: {
-                line: jc,
-                column: ic - kc - a
-            }
+                    line: jc,
+                    column: ic - kc - a
+                }
             }; lc > ic;)
                 if (d = gc.charCodeAt(ic), ++ic, g(d)) return pc.comments && (e = gc.slice(b + a, ic - 1), c.end = {
                     line: jc,
                     column: ic - kc - 1
-                }, n("Line", e, b, ic - 1, c)), 13 === d && 10 === gc.charCodeAt(ic) && ++ic, ++jc, void (kc = ic);
+                }, n("Line", e, b, ic - 1, c)), 13 === d && 10 === gc.charCodeAt(ic) && ++ic, ++jc, void(kc = ic);
             pc.comments && (e = gc.slice(b + a, ic), c.end = {
                 line: jc,
                 column: ic - kc
@@ -173,18 +157,18 @@ function (a) {
             var a, b, c, d;
             for (pc.comments && (a = ic - 2, b = {
                 start: {
-                line: jc,
-                column: ic - kc - 2
-            }
-            }) ; lc > ic;)
+                    line: jc,
+                    column: ic - kc - 2
+                }
+            }); lc > ic;)
                 if (c = gc.charCodeAt(ic), g(c)) 13 === c && 10 === gc.charCodeAt(ic + 1) && ++ic, ++jc, ++ic, kc = ic, ic >= lc && O({}, dc.UnexpectedToken, "ILLEGAL");
                 else if (42 === c) {
-                    if (47 === gc.charCodeAt(ic + 1)) return ++ic, ++ic, void (pc.comments && (d = gc.slice(a + 2, ic - 2), b.end = {
-                        line: jc,
-                        column: ic - kc
-                    }, n("Block", d, a, ic, b)));
-                    ++ic
-                } else ++ic;
+                if (47 === gc.charCodeAt(ic + 1)) return ++ic, ++ic, void(pc.comments && (d = gc.slice(a + 2, ic - 2), b.end = {
+                    line: jc,
+                    column: ic - kc
+                }, n("Block", d, a, ic, b)));
+                ++ic
+            } else ++ic;
             O({}, dc.UnexpectedToken, "ILLEGAL")
         }
 
@@ -192,20 +176,20 @@ function (a) {
             var a, b;
             for (b = 0 === ic; lc > ic;)
                 if (a = gc.charCodeAt(ic), f(a))++ic;
-                else if (g(a))++ic, 13 === a && 10 === gc.charCodeAt(ic) && ++ic, ++jc, kc = ic, b = !0;
-                else if (47 === a)
-                    if (a = gc.charCodeAt(ic + 1), 47 === a)++ic, ++ic, o(2), b = !0;
-                    else {
-                        if (42 !== a) break;
-                        ++ic, ++ic, p()
-                    } else if (b && 45 === a) {
-                        if (45 !== gc.charCodeAt(ic + 1) || 62 !== gc.charCodeAt(ic + 2)) break;
-                        ic += 3, o(3)
-                    } else {
-                        if (60 !== a) break;
-                        if ("!--" !== gc.slice(ic + 1, ic + 4)) break;
-                        ++ic, ++ic, ++ic, ++ic, o(4)
-                    }
+            else if (g(a))++ic, 13 === a && 10 === gc.charCodeAt(ic) && ++ic, ++jc, kc = ic, b = !0;
+            else if (47 === a)
+                if (a = gc.charCodeAt(ic + 1), 47 === a)++ic, ++ic, o(2), b = !0;
+            else {
+                if (42 !== a) break;
+                ++ic, ++ic, p()
+            } else if (b && 45 === a) {
+                if (45 !== gc.charCodeAt(ic + 1) || 62 !== gc.charCodeAt(ic + 2)) break;
+                ic += 3, o(3)
+            } else {
+                if (60 !== a) break;
+                if ("!--" !== gc.slice(ic + 1, ic + 4)) break;
+                ++ic, ++ic, ++ic, ++ic, o(4)
+            }
         }
 
         function r(a) {
@@ -219,7 +203,7 @@ function (a) {
 
         function s() {
             var a, b;
-            for (a = gc.charCodeAt(ic++), b = String.fromCharCode(a), 92 === a && (117 !== gc.charCodeAt(ic) && O({}, dc.UnexpectedToken, "ILLEGAL"), ++ic, a = r("u"), a && "\\" !== a && h(a.charCodeAt(0)) || O({}, dc.UnexpectedToken, "ILLEGAL"), b = a) ; lc > ic && (a = gc.charCodeAt(ic), i(a)) ;)++ic, b += String.fromCharCode(a), 92 === a && (b = b.substr(0, b.length - 1), 117 !== gc.charCodeAt(ic) && O({}, dc.UnexpectedToken, "ILLEGAL"), ++ic, a = r("u"), a && "\\" !== a && i(a.charCodeAt(0)) || O({}, dc.UnexpectedToken, "ILLEGAL"), b += a);
+            for (a = gc.charCodeAt(ic++), b = String.fromCharCode(a), 92 === a && (117 !== gc.charCodeAt(ic) && O({}, dc.UnexpectedToken, "ILLEGAL"), ++ic, a = r("u"), a && "\\" !== a && h(a.charCodeAt(0)) || O({}, dc.UnexpectedToken, "ILLEGAL"), b = a); lc > ic && (a = gc.charCodeAt(ic), i(a));)++ic, b += String.fromCharCode(a), 92 === a && (b = b.substr(0, b.length - 1), 117 !== gc.charCodeAt(ic) && O({}, dc.UnexpectedToken, "ILLEGAL"), ++ic, a = r("u"), a && "\\" !== a && i(a.charCodeAt(0)) || O({}, dc.UnexpectedToken, "ILLEGAL"), b += a);
             return b
         }
 
@@ -334,7 +318,7 @@ function (a) {
         }
 
         function w(a) {
-            for (var b = ""; lc > ic && d(gc[ic]) ;) b += gc[ic++];
+            for (var b = ""; lc > ic && d(gc[ic]);) b += gc[ic++];
             return 0 === b.length && O({}, dc.UnexpectedToken, "ILLEGAL"), h(gc.charCodeAt(ic)) && O({}, dc.UnexpectedToken, "ILLEGAL"), {
                 type: $b.NumericLiteral,
                 value: parseInt("0x" + b, 16),
@@ -346,7 +330,7 @@ function (a) {
         }
 
         function x(a) {
-            for (var b = "0" + gc[ic++]; lc > ic && e(gc[ic]) ;) b += gc[ic++];
+            for (var b = "0" + gc[ic++]; lc > ic && e(gc[ic]);) b += gc[ic++];
             return (h(gc.charCodeAt(ic)) || c(gc.charCodeAt(ic))) && O({}, dc.UnexpectedToken, "ILLEGAL"), {
                 type: $b.NumericLiteral,
                 value: parseInt(b, 8),
@@ -366,16 +350,16 @@ function (a) {
                     if (e(f)) return x(d);
                     f && c(f.charCodeAt(0)) && O({}, dc.UnexpectedToken, "ILLEGAL")
                 }
-                for (; c(gc.charCodeAt(ic)) ;) a += gc[ic++];
+                for (; c(gc.charCodeAt(ic));) a += gc[ic++];
                 f = gc[ic]
             }
             if ("." === f) {
-                for (a += gc[ic++]; c(gc.charCodeAt(ic)) ;) a += gc[ic++];
+                for (a += gc[ic++]; c(gc.charCodeAt(ic));) a += gc[ic++];
                 f = gc[ic]
             }
             if ("e" === f || "E" === f)
                 if (a += gc[ic++], f = gc[ic], ("+" === f || "-" === f) && (a += gc[ic++]), c(gc.charCodeAt(ic)))
-                    for (; c(gc.charCodeAt(ic)) ;) a += gc[ic++];
+                    for (; c(gc.charCodeAt(ic));) a += gc[ic++];
                 else O({}, dc.UnexpectedToken, "ILLEGAL");
             return h(gc.charCodeAt(ic)) && O({}, dc.UnexpectedToken, "ILLEGAL"), {
                 type: $b.NumericLiteral,
@@ -397,32 +381,32 @@ function (a) {
                 }
                 if ("\\" === d)
                     if (d = gc[ic++], d && g(d.charCodeAt(0)))++jc, "\r" === d && "\n" === gc[ic] && ++ic, kc = ic;
-                    else switch (d) {
-                        case "u":
-                        case "x":
-                            i = ic, h = r(d), h ? l += h : (ic = i, l += d);
-                            break;
-                        case "n":
-                            l += "\n";
-                            break;
-                        case "r":
-                            l += "\r";
-                            break;
-                        case "t":
-                            l += " ";
-                            break;
-                        case "b":
-                            l += "\b";
-                            break;
-                        case "f":
-                            l += "\f";
-                            break;
-                        case "v":
-                            l += "";
-                            break;
-                        default:
-                            e(d) ? (f = "01234567".indexOf(d), 0 !== f && (m = !0), lc > ic && e(gc[ic]) && (m = !0, f = 8 * f + "01234567".indexOf(gc[ic++]), "0123".indexOf(d) >= 0 && lc > ic && e(gc[ic]) && (f = 8 * f + "01234567".indexOf(gc[ic++]))), l += String.fromCharCode(f)) : l += d
-                    } else {
+                else switch (d) {
+                    case "u":
+                    case "x":
+                        i = ic, h = r(d), h ? l += h : (ic = i, l += d);
+                        break;
+                    case "n":
+                        l += "\n";
+                        break;
+                    case "r":
+                        l += "\r";
+                        break;
+                    case "t":
+                        l += " ";
+                        break;
+                    case "b":
+                        l += "\b";
+                        break;
+                    case "f":
+                        l += "\f";
+                        break;
+                    case "v":
+                        l += "";
+                        break;
+                    default:
+                        e(d) ? (f = "01234567".indexOf(d), 0 !== f && (m = !0), lc > ic && e(gc[ic]) && (m = !0, f = 8 * f + "01234567".indexOf(gc[ic++]), "0123".indexOf(d) >= 0 && lc > ic && e(gc[ic]) && (f = 8 * f + "01234567".indexOf(gc[ic++]))), l += String.fromCharCode(f)) : l += d
+                } else {
                     if (g(d.charCodeAt(0))) break;
                     l += d
                 }
@@ -455,14 +439,14 @@ function (a) {
             for (a = gc[ic], b("/" === a, "Regular expression literal must start with a slash"), c = gc[ic++], d = !1, e = !1; lc > ic;)
                 if (a = gc[ic++], c += a, "\\" === a) a = gc[ic++], g(a.charCodeAt(0)) && O({}, dc.UnterminatedRegExp), c += a;
                 else if (g(a.charCodeAt(0))) O({}, dc.UnterminatedRegExp);
-                else if (d) "]" === a && (d = !1);
-                else {
-                    if ("/" === a) {
-                        e = !0;
-                        break
-                    }
-                    "[" === a && (d = !0)
+            else if (d) "]" === a && (d = !1);
+            else {
+                if ("/" === a) {
+                    e = !0;
+                    break
                 }
+                "[" === a && (d = !0)
+            }
             return e || O({}, dc.UnterminatedRegExp), f = c.substr(1, c.length - 2), {
                 value: f,
                 literal: c
@@ -471,7 +455,7 @@ function (a) {
 
         function C() {
             var a, b, c, d;
-            for (b = "", c = ""; lc > ic && (a = gc[ic], i(a.charCodeAt(0))) ;)
+            for (b = "", c = ""; lc > ic && (a = gc[ic], i(a.charCodeAt(0)));)
                 if (++ic, "\\" === a && lc > ic)
                     if (a = gc[ic], "u" === a) {
                         if (++ic, d = ic, a = r("u"))
@@ -479,7 +463,7 @@ function (a) {
                         else ic = d, c += "u", b += "\\u";
                         P({}, dc.UnexpectedToken, "ILLEGAL")
                     } else b += "\\", P({}, dc.UnexpectedToken, "ILLEGAL");
-                else c += a, b += a;
+                    else c += a, b += a;
             return {
                 value: c,
                 literal: b
@@ -599,7 +583,7 @@ function (a) {
 
         function O(a, c) {
             var d, e = Array.prototype.slice.call(arguments, 2),
-                f = c.replace(/%(\d)/g, function (a, c) {
+                f = c.replace(/%(\d)/g, function(a, c) {
                     return b(c < e.length, "Message reference must be in range"), e[c]
                 });
             throw "number" == typeof a.lineNumber ? (d = new Error("Line " + a.lineNumber + ": " + f), d.index = a.start, d.lineNumber = a.lineNumber, d.column = a.start - kc + 1) : (d = new Error("Line " + jc + ": " + f), d.index = ic, d.lineNumber = jc, d.column = ic - kc + 1), d.description = f, d
@@ -648,7 +632,7 @@ function (a) {
 
         function W() {
             var a;
-            return 59 === gc.charCodeAt(ic) || T(";") ? void J() : (a = jc, q(), void (jc === a && (nc.type === $b.EOF || T("}") || Q(nc))))
+            return 59 === gc.charCodeAt(ic) || T(";") ? void J() : (a = jc, q(), void(jc === a && (nc.type === $b.EOF || T("}") || Q(nc))))
         }
 
         function X(a) {
@@ -657,7 +641,7 @@ function (a) {
 
         function Y() {
             var a, b = [];
-            for (a = nc, R("[") ; !T("]") ;) T(",") ? (J(), b.push(null)) : (b.push(pb()), T("]") || R(","));
+            for (a = nc, R("["); !T("]");) T(",") ? (J(), b.push(null)) : (b.push(pb()), T("]") || R(","));
             return J(), mc.markEnd(mc.createArrayExpression(b), a)
         }
 
@@ -679,7 +663,7 @@ function (a) {
         function ab() {
             var a, b, c, d, e, f = [],
                 g = {}, h = String;
-            for (e = nc, R("{") ; !T("}") ;) a = _(), b = a.key.type === bc.Identifier ? a.key.name : h(a.key.value), d = "init" === a.kind ? cc.Data : "get" === a.kind ? cc.Get : cc.Set, c = "$" + b, Object.prototype.hasOwnProperty.call(g, c) ? (g[c] === cc.Data ? hc && d === cc.Data ? P({}, dc.StrictDuplicateProperty) : d !== cc.Data && P({}, dc.AccessorDataProperty) : d === cc.Data ? P({}, dc.AccessorDataProperty) : g[c] & d && P({}, dc.AccessorGetSet), g[c] |= d) : g[c] = d, f.push(a), T("}") || R(",");
+            for (e = nc, R("{"); !T("}");) a = _(), b = a.key.type === bc.Identifier ? a.key.name : h(a.key.value), d = "init" === a.kind ? cc.Data : "get" === a.kind ? cc.Get : cc.Set, c = "$" + b, Object.prototype.hasOwnProperty.call(g, c) ? (g[c] === cc.Data ? hc && d === cc.Data ? P({}, dc.StrictDuplicateProperty) : d !== cc.Data && P({}, dc.AccessorDataProperty) : d === cc.Data ? P({}, dc.AccessorDataProperty) : g[c] & d && P({}, dc.AccessorGetSet), g[c] |= d) : g[c] = d, f.push(a), T("}") || R(",");
             return R("}"), mc.markEnd(mc.createObjectExpression(f), e)
         }
 
@@ -705,7 +689,7 @@ function (a) {
         function db() {
             var a = [];
             if (R("("), !T(")"))
-                for (; lc > ic && (a.push(pb()), !T(")")) ;) R(",");
+                for (; lc > ic && (a.push(pb()), !T(")"));) R(",");
             return R(")"), a
         }
 
@@ -730,7 +714,7 @@ function (a) {
 
         function ib() {
             var a, b, c, d, e;
-            for (e = nc, a = oc.allowIn, oc.allowIn = !0, b = U("new") ? hb() : cb(), oc.allowIn = a; ;) {
+            for (e = nc, a = oc.allowIn, oc.allowIn = !0, b = U("new") ? hb() : cb(), oc.allowIn = a;;) {
                 if (T(".")) d = fb(), b = mc.createMemberExpression(".", b, d);
                 else if (T("(")) c = db(), b = mc.createCallExpression(b, c);
                 else {
@@ -744,7 +728,7 @@ function (a) {
 
         function jb() {
             var a, b, c, d;
-            for (d = nc, a = oc.allowIn, b = U("new") ? hb() : cb(), oc.allowIn = a; T(".") || T("[") ;) T("[") ? (c = gb(), b = mc.createMemberExpression("[", b, c)) : (c = fb(), b = mc.createMemberExpression(".", b, c)), mc.markEnd(b, d);
+            for (d = nc, a = oc.allowIn, b = U("new") ? hb() : cb(), oc.allowIn = a; T(".") || T("[");) T("[") ? (c = gb(), b = mc.createMemberExpression("[", b, c)) : (c = fb(), b = mc.createMemberExpression(".", b, c)), mc.markEnd(b, d);
             return b
         }
 
@@ -818,7 +802,7 @@ function (a) {
                 for (; f.length > 2 && e <= f[f.length - 2].prec;) g = f.pop(), h = f.pop().value, i = f.pop(), c = mc.createBinaryExpression(h, i, g), b.pop(), a = b[b.length - 1], mc.markEnd(c, a), f.push(c);
                 d = J(), d.prec = e, f.push(d), b.push(nc), c = lb(), f.push(c)
             }
-            for (j = f.length - 1, c = f[j], b.pop() ; j > 1;) c = mc.createBinaryExpression(f[j - 1].value, f[j - 2], c), j -= 2, a = b.pop(), mc.markEnd(c, a);
+            for (j = f.length - 1, c = f[j], b.pop(); j > 1;) c = mc.createBinaryExpression(f[j - 1].value, f[j - 2], c), j -= 2, a = b.pop(), mc.markEnd(c, a);
             return c
         }
 
@@ -835,14 +819,14 @@ function (a) {
         function qb() {
             var a, b = nc;
             if (a = pb(), T(",")) {
-                for (a = mc.createSequenceExpression([a]) ; lc > ic && T(",") ;) J(), a.expressions.push(pb());
+                for (a = mc.createSequenceExpression([a]); lc > ic && T(",");) J(), a.expressions.push(pb());
                 mc.markEnd(a, b)
             }
             return a
         }
 
         function rb() {
-            for (var a, b = []; lc > ic && !T("}") && (a = Ub(), "undefined" != typeof a) ;) b.push(a);
+            for (var a, b = []; lc > ic && !T("}") && (a = Ub(), "undefined" != typeof a);) b.push(a);
             return b
         }
 
@@ -936,14 +920,14 @@ function (a) {
 
         function Jb() {
             var a, b, c, d = [];
-            for (c = nc, U("default") ? (J(), a = null) : (S("case"), a = qb()), R(":") ; lc > ic && !(T("}") || U("default") || U("case")) ;) b = Pb(), d.push(b);
+            for (c = nc, U("default") ? (J(), a = null) : (S("case"), a = qb()), R(":"); lc > ic && !(T("}") || U("default") || U("case"));) b = Pb(), d.push(b);
             return mc.markEnd(mc.createSwitchCase(a, d), c)
         }
 
         function Kb() {
             var a, b, c, d, e;
             if (S("switch"), R("("), a = qb(), R(")"), R("{"), b = [], T("}")) return J(), mc.createSwitchStatement(a, b);
-            for (d = oc.inSwitch, oc.inSwitch = !0, e = !1; lc > ic && !T("}") ;) c = Jb(), null === c.test && (e && O({}, dc.MultipleDefaultsInSwitch), e = !0), b.push(c);
+            for (d = oc.inSwitch, oc.inSwitch = !0, e = !1; lc > ic && !T("}");) c = Jb(), null === c.test && (e && O({}, dc.MultipleDefaultsInSwitch), e = !0), b.push(c);
             return oc.inSwitch = d, R("}"), mc.createSwitchStatement(a, b)
         }
 
@@ -1011,15 +995,15 @@ function (a) {
 
         function Qb() {
             var a, b, c, d, e, f, g, h, i, j = [];
-            for (i = nc, R("{") ; lc > ic && nc.type === $b.StringLiteral && (b = nc, a = Ub(), j.push(a), a.expression.type === bc.Literal) ;) c = gc.slice(b.start + 1, b.end - 1), "use strict" === c ? (hc = !0, d && P(d, dc.StrictOctalLiteral)) : !d && b.octal && (d = b);
-            for (e = oc.labelSet, f = oc.inIteration, g = oc.inSwitch, h = oc.inFunctionBody, oc.labelSet = {}, oc.inIteration = !1, oc.inSwitch = !1, oc.inFunctionBody = !0; lc > ic && !T("}") && (a = Ub(), "undefined" != typeof a) ;) j.push(a);
+            for (i = nc, R("{"); lc > ic && nc.type === $b.StringLiteral && (b = nc, a = Ub(), j.push(a), a.expression.type === bc.Literal);) c = gc.slice(b.start + 1, b.end - 1), "use strict" === c ? (hc = !0, d && P(d, dc.StrictOctalLiteral)) : !d && b.octal && (d = b);
+            for (e = oc.labelSet, f = oc.inIteration, g = oc.inSwitch, h = oc.inFunctionBody, oc.labelSet = {}, oc.inIteration = !1, oc.inSwitch = !1, oc.inFunctionBody = !0; lc > ic && !T("}") && (a = Ub(), "undefined" != typeof a);) j.push(a);
             return R("}"), oc.labelSet = e, oc.inIteration = f, oc.inSwitch = g, oc.inFunctionBody = h, mc.markEnd(mc.createBlockStatement(j), i)
         }
 
         function Rb(a) {
             var b, c, d, e, f, g, h = [];
             if (R("("), !T(")"))
-                for (e = {}; lc > ic && (c = nc, b = tb(), f = "$" + c.value, hc ? (l(c.value) && (d = c, g = dc.StrictParamName), Object.prototype.hasOwnProperty.call(e, f) && (d = c, g = dc.StrictParamDupe)) : a || (l(c.value) ? (a = c, g = dc.StrictParamName) : k(c.value) ? (a = c, g = dc.StrictReservedWord) : Object.prototype.hasOwnProperty.call(e, f) && (a = c, g = dc.StrictParamDupe)), h.push(b), e[f] = !0, !T(")")) ;) R(",");
+                for (e = {}; lc > ic && (c = nc, b = tb(), f = "$" + c.value, hc ? (l(c.value) && (d = c, g = dc.StrictParamName), Object.prototype.hasOwnProperty.call(e, f) && (d = c, g = dc.StrictParamDupe)) : a || (l(c.value) ? (a = c, g = dc.StrictParamName) : k(c.value) ? (a = c, g = dc.StrictReservedWord) : Object.prototype.hasOwnProperty.call(e, f) && (a = c, g = dc.StrictParamDupe)), h.push(b), e[f] = !0, !T(")"));) R(",");
             return R(")"), {
                 params: h,
                 stricted: d,
@@ -1053,8 +1037,8 @@ function (a) {
         }
 
         function Vb() {
-            for (var a, b, c, d, e = []; lc > ic && (b = nc, b.type === $b.StringLiteral) && (a = Ub(), e.push(a), a.expression.type === bc.Literal) ;) c = gc.slice(b.start + 1, b.end - 1), "use strict" === c ? (hc = !0, d && P(d, dc.StrictOctalLiteral)) : !d && b.octal && (d = b);
-            for (; lc > ic && (a = Ub(), "undefined" != typeof a) ;) e.push(a);
+            for (var a, b, c, d, e = []; lc > ic && (b = nc, b.type === $b.StringLiteral) && (a = Ub(), e.push(a), a.expression.type === bc.Literal);) c = gc.slice(b.start + 1, b.end - 1), "use strict" === c ? (hc = !0, d && P(d, dc.StrictOctalLiteral)) : !d && b.octal && (d = b);
+            for (; lc > ic && (a = Ub(), "undefined" != typeof a);) e.push(a);
             return e
         }
 
@@ -1084,7 +1068,7 @@ function (a) {
             }, pc = {}, b = b || {}, b.tokens = !0, pc.tokens = [], pc.tokenize = !0, pc.openParenToken = -1, pc.openCurlyToken = -1, pc.range = "boolean" == typeof b.range && b.range, pc.loc = "boolean" == typeof b.loc && b.loc, "boolean" == typeof b.comment && b.comment && (pc.comments = []), "boolean" == typeof b.tolerant && b.tolerant && (pc.errors = []);
             try {
                 if (K(), nc.type === $b.EOF) return pc.tokens;
-                for (d = J() ; nc.type !== $b.EOF;) try {
+                for (d = J(); nc.type !== $b.EOF;) try {
                     d = J()
                 } catch (f) {
                     if (d = nc, pc.errors) {
@@ -1216,26 +1200,26 @@ function (a) {
             NonAsciiIdentifierPart: new RegExp("[\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0300-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u0483-\u0487\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u05d0-\u05ea\u05f0-\u05f2\u0610-\u061a\u0620-\u0669\u066e-\u06d3\u06d5-\u06dc\u06df-\u06e8\u06ea-\u06fc\u06ff\u0710-\u074a\u074d-\u07b1\u07c0-\u07f5\u07fa\u0800-\u082d\u0840-\u085b\u08a0\u08a2-\u08ac\u08e4-\u08fe\u0900-\u0963\u0966-\u096f\u0971-\u0977\u0979-\u097f\u0981-\u0983\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bc-\u09c4\u09c7\u09c8\u09cb-\u09ce\u09d7\u09dc\u09dd\u09df-\u09e3\u09e6-\u09f1\u0a01-\u0a03\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a59-\u0a5c\u0a5e\u0a66-\u0a75\u0a81-\u0a83\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abc-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ad0\u0ae0-\u0ae3\u0ae6-\u0aef\u0b01-\u0b03\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3c-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b5c\u0b5d\u0b5f-\u0b63\u0b66-\u0b6f\u0b71\u0b82\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd0\u0bd7\u0be6-\u0bef\u0c01-\u0c03\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c58\u0c59\u0c60-\u0c63\u0c66-\u0c6f\u0c82\u0c83\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbc-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0cde\u0ce0-\u0ce3\u0ce6-\u0cef\u0cf1\u0cf2\u0d02\u0d03\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d-\u0d44\u0d46-\u0d48\u0d4a-\u0d4e\u0d57\u0d60-\u0d63\u0d66-\u0d6f\u0d7a-\u0d7f\u0d82\u0d83\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e01-\u0e3a\u0e40-\u0e4e\u0e50-\u0e59\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb9\u0ebb-\u0ebd\u0ec0-\u0ec4\u0ec6\u0ec8-\u0ecd\u0ed0-\u0ed9\u0edc-\u0edf\u0f00\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e-\u0f47\u0f49-\u0f6c\u0f71-\u0f84\u0f86-\u0f97\u0f99-\u0fbc\u0fc6\u1000-\u1049\u1050-\u109d\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u135d-\u135f\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1714\u1720-\u1734\u1740-\u1753\u1760-\u176c\u176e-\u1770\u1772\u1773\u1780-\u17d3\u17d7\u17dc\u17dd\u17e0-\u17e9\u180b-\u180d\u1810-\u1819\u1820-\u1877\u1880-\u18aa\u18b0-\u18f5\u1900-\u191c\u1920-\u192b\u1930-\u193b\u1946-\u196d\u1970-\u1974\u1980-\u19ab\u19b0-\u19c9\u19d0-\u19d9\u1a00-\u1a1b\u1a20-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1aa7\u1b00-\u1b4b\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1bf3\u1c00-\u1c37\u1c40-\u1c49\u1c4d-\u1c7d\u1cd0-\u1cd2\u1cd4-\u1cf6\u1d00-\u1de6\u1dfc-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u200c\u200d\u203f\u2040\u2054\u2071\u207f\u2090-\u209c\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d7f-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2de0-\u2dff\u2e2f\u3005-\u3007\u3021-\u302f\u3031-\u3035\u3038-\u303c\u3041-\u3096\u3099\u309a\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua62b\ua640-\ua66f\ua674-\ua67d\ua67f-\ua697\ua69f-\ua6f1\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua827\ua840-\ua873\ua880-\ua8c4\ua8d0-\ua8d9\ua8e0-\ua8f7\ua8fb\ua900-\ua92d\ua930-\ua953\ua960-\ua97c\ua980-\ua9c0\ua9cf-\ua9d9\uaa00-\uaa36\uaa40-\uaa4d\uaa50-\uaa59\uaa60-\uaa76\uaa7a\uaa7b\uaa80-\uaac2\uaadb-\uaadd\uaae0-\uaaef\uaaf2-\uaaf6\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabea\uabec\uabed\uabf0-\uabf9\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe00-\ufe0f\ufe20-\ufe26\ufe33\ufe34\ufe4d-\ufe4f\ufe70-\ufe74\ufe76-\ufefc\uff10-\uff19\uff21-\uff3a\uff3f\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc]")
         }, fc = {
             name: "SyntaxTree",
-            processComment: function (a) {
+            processComment: function(a) {
                 var b, c;
                 if (!(a.type === bc.Program && a.body.length > 0)) {
-                    for (pc.trailingComments.length > 0 ? pc.trailingComments[0].range[0] >= a.range[1] ? (c = pc.trailingComments, pc.trailingComments = []) : pc.trailingComments.length = 0 : pc.bottomRightStack.length > 0 && pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments && pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments[0].range[0] >= a.range[1] && (c = pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments, delete pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments) ; pc.bottomRightStack.length > 0 && pc.bottomRightStack[pc.bottomRightStack.length - 1].range[0] >= a.range[0];) b = pc.bottomRightStack.pop();
+                    for (pc.trailingComments.length > 0 ? pc.trailingComments[0].range[0] >= a.range[1] ? (c = pc.trailingComments, pc.trailingComments = []) : pc.trailingComments.length = 0 : pc.bottomRightStack.length > 0 && pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments && pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments[0].range[0] >= a.range[1] && (c = pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments, delete pc.bottomRightStack[pc.bottomRightStack.length - 1].trailingComments); pc.bottomRightStack.length > 0 && pc.bottomRightStack[pc.bottomRightStack.length - 1].range[0] >= a.range[0];) b = pc.bottomRightStack.pop();
                     b ? b.leadingComments && b.leadingComments[b.leadingComments.length - 1].range[1] <= a.range[0] && (a.leadingComments = b.leadingComments, delete b.leadingComments) : pc.leadingComments.length > 0 && pc.leadingComments[pc.leadingComments.length - 1].range[1] <= a.range[0] && (a.leadingComments = pc.leadingComments, pc.leadingComments = []), c && (a.trailingComments = c), pc.bottomRightStack.push(a)
                 }
             },
-            markEnd: function (a, b) {
+            markEnd: function(a, b) {
                 return pc.range && (a.range = [b.start, ic]), pc.loc && (a.loc = new M(void 0 === b.startLineNumber ? b.lineNumber : b.startLineNumber, b.start - (void 0 === b.startLineStart ? b.lineStart : b.startLineStart), jc, ic - kc), this.postProcess(a)), pc.attachComment && this.processComment(a), a
             },
-            postProcess: function (a) {
+            postProcess: function(a) {
                 return pc.source && (a.loc.source = pc.source), a
             },
-            createArrayExpression: function (a) {
+            createArrayExpression: function(a) {
                 return {
                     type: bc.ArrayExpression,
                     elements: a
                 }
             },
-            createAssignmentExpression: function (a, b, c) {
+            createAssignmentExpression: function(a, b, c) {
                 return {
                     type: bc.AssignmentExpression,
                     operator: a,
@@ -1243,7 +1227,7 @@ function (a) {
                     right: c
                 }
             },
-            createBinaryExpression: function (a, b, c) {
+            createBinaryExpression: function(a, b, c) {
                 var d = "||" === a || "&&" === a ? bc.LogicalExpression : bc.BinaryExpression;
                 return {
                     type: d,
@@ -1252,33 +1236,33 @@ function (a) {
                     right: c
                 }
             },
-            createBlockStatement: function (a) {
+            createBlockStatement: function(a) {
                 return {
                     type: bc.BlockStatement,
                     body: a
                 }
             },
-            createBreakStatement: function (a) {
+            createBreakStatement: function(a) {
                 return {
                     type: bc.BreakStatement,
                     label: a
                 }
             },
-            createCallExpression: function (a, b) {
+            createCallExpression: function(a, b) {
                 return {
                     type: bc.CallExpression,
                     callee: a,
                     arguments: b
                 }
             },
-            createCatchClause: function (a, b) {
+            createCatchClause: function(a, b) {
                 return {
                     type: bc.CatchClause,
                     param: a,
                     body: b
                 }
             },
-            createConditionalExpression: function (a, b, c) {
+            createConditionalExpression: function(a, b, c) {
                 return {
                     type: bc.ConditionalExpression,
                     test: a,
@@ -1286,36 +1270,36 @@ function (a) {
                     alternate: c
                 }
             },
-            createContinueStatement: function (a) {
+            createContinueStatement: function(a) {
                 return {
                     type: bc.ContinueStatement,
                     label: a
                 }
             },
-            createDebuggerStatement: function () {
+            createDebuggerStatement: function() {
                 return {
                     type: bc.DebuggerStatement
                 }
             },
-            createDoWhileStatement: function (a, b) {
+            createDoWhileStatement: function(a, b) {
                 return {
                     type: bc.DoWhileStatement,
                     body: a,
                     test: b
                 }
             },
-            createEmptyStatement: function () {
+            createEmptyStatement: function() {
                 return {
                     type: bc.EmptyStatement
                 }
             },
-            createExpressionStatement: function (a) {
+            createExpressionStatement: function(a) {
                 return {
                     type: bc.ExpressionStatement,
                     expression: a
                 }
             },
-            createForStatement: function (a, b, c, d) {
+            createForStatement: function(a, b, c, d) {
                 return {
                     type: bc.ForStatement,
                     init: a,
@@ -1324,7 +1308,7 @@ function (a) {
                     body: d
                 }
             },
-            createForInStatement: function (a, b, c) {
+            createForInStatement: function(a, b, c) {
                 return {
                     type: bc.ForInStatement,
                     left: a,
@@ -1333,7 +1317,7 @@ function (a) {
                     each: !1
                 }
             },
-            createFunctionDeclaration: function (a, b, c, d) {
+            createFunctionDeclaration: function(a, b, c, d) {
                 return {
                     type: bc.FunctionDeclaration,
                     id: a,
@@ -1345,7 +1329,7 @@ function (a) {
                     expression: !1
                 }
             },
-            createFunctionExpression: function (a, b, c, d) {
+            createFunctionExpression: function(a, b, c, d) {
                 return {
                     type: bc.FunctionExpression,
                     id: a,
@@ -1357,13 +1341,13 @@ function (a) {
                     expression: !1
                 }
             },
-            createIdentifier: function (a) {
+            createIdentifier: function(a) {
                 return {
                     type: bc.Identifier,
                     name: a
                 }
             },
-            createIfStatement: function (a, b, c) {
+            createIfStatement: function(a, b, c) {
                 return {
                     type: bc.IfStatement,
                     test: a,
@@ -1371,21 +1355,21 @@ function (a) {
                     alternate: c
                 }
             },
-            createLabeledStatement: function (a, b) {
+            createLabeledStatement: function(a, b) {
                 return {
                     type: bc.LabeledStatement,
                     label: a,
                     body: b
                 }
             },
-            createLiteral: function (a) {
+            createLiteral: function(a) {
                 return {
                     type: bc.Literal,
                     value: a.value,
                     raw: gc.slice(a.start, a.end)
                 }
             },
-            createMemberExpression: function (a, b, c) {
+            createMemberExpression: function(a, b, c) {
                 return {
                     type: bc.MemberExpression,
                     computed: "[" === a,
@@ -1393,20 +1377,20 @@ function (a) {
                     property: c
                 }
             },
-            createNewExpression: function (a, b) {
+            createNewExpression: function(a, b) {
                 return {
                     type: bc.NewExpression,
                     callee: a,
                     arguments: b
                 }
             },
-            createObjectExpression: function (a) {
+            createObjectExpression: function(a) {
                 return {
                     type: bc.ObjectExpression,
                     properties: a
                 }
             },
-            createPostfixExpression: function (a, b) {
+            createPostfixExpression: function(a, b) {
                 return {
                     type: bc.UpdateExpression,
                     operator: a,
@@ -1414,13 +1398,13 @@ function (a) {
                     prefix: !1
                 }
             },
-            createProgram: function (a) {
+            createProgram: function(a) {
                 return {
                     type: bc.Program,
                     body: a
                 }
             },
-            createProperty: function (a, b, c) {
+            createProperty: function(a, b, c) {
                 return {
                     type: bc.Property,
                     key: b,
@@ -1428,44 +1412,44 @@ function (a) {
                     kind: a
                 }
             },
-            createReturnStatement: function (a) {
+            createReturnStatement: function(a) {
                 return {
                     type: bc.ReturnStatement,
                     argument: a
                 }
             },
-            createSequenceExpression: function (a) {
+            createSequenceExpression: function(a) {
                 return {
                     type: bc.SequenceExpression,
                     expressions: a
                 }
             },
-            createSwitchCase: function (a, b) {
+            createSwitchCase: function(a, b) {
                 return {
                     type: bc.SwitchCase,
                     test: a,
                     consequent: b
                 }
             },
-            createSwitchStatement: function (a, b) {
+            createSwitchStatement: function(a, b) {
                 return {
                     type: bc.SwitchStatement,
                     discriminant: a,
                     cases: b
                 }
             },
-            createThisExpression: function () {
+            createThisExpression: function() {
                 return {
                     type: bc.ThisExpression
                 }
             },
-            createThrowStatement: function (a) {
+            createThrowStatement: function(a) {
                 return {
                     type: bc.ThrowStatement,
                     argument: a
                 }
             },
-            createTryStatement: function (a, b, c, d) {
+            createTryStatement: function(a, b, c, d) {
                 return {
                     type: bc.TryStatement,
                     block: a,
@@ -1474,7 +1458,7 @@ function (a) {
                     finalizer: d
                 }
             },
-            createUnaryExpression: function (a, b) {
+            createUnaryExpression: function(a, b) {
                 return "++" === a || "--" === a ? {
                     type: bc.UpdateExpression,
                     operator: a,
@@ -1487,35 +1471,35 @@ function (a) {
                     prefix: !0
                 }
             },
-            createVariableDeclaration: function (a, b) {
+            createVariableDeclaration: function(a, b) {
                 return {
                     type: bc.VariableDeclaration,
                     declarations: a,
                     kind: b
                 }
             },
-            createVariableDeclarator: function (a, b) {
+            createVariableDeclarator: function(a, b) {
                 return {
                     type: bc.VariableDeclarator,
                     id: a,
                     init: b
                 }
             },
-            createWhileStatement: function (a, b) {
+            createWhileStatement: function(a, b) {
                 return {
                     type: bc.WhileStatement,
                     test: a,
                     body: b
                 }
             },
-            createWithStatement: function (a, b) {
+            createWithStatement: function(a, b) {
                 return {
                     type: bc.WithStatement,
                     object: a,
                     body: b
                 }
             }
-        }, a.version = "1.2.2", a.tokenize = Yb, a.parse = Zb, a.Syntax = function () {
+        }, a.version = "1.2.2", a.tokenize = Yb, a.parse = Zb, a.Syntax = function() {
             var a, b = {};
             "function" == typeof Object.create && (b = Object.create(null));
             for (a in bc) bc.hasOwnProperty(a) && (b[a] = bc[a]);
@@ -1528,57 +1512,57 @@ function (a) {
  * https://github.com/substack/node-falafel
  */
 
-function (a, b) {
+function(a, b) {
     function c(a, b, c) {
         function d(b) {
             c[a.range[0]] = b;
             for (var d = a.range[0] + 1; d < a.range[1]; d++) c[d] = ""
         }
         if (a.range)
-            if (a.parent = b, a.source = function () {
+            if (a.parent = b, a.source = function() {
                 return c.slice(a.range[0], a.range[1]).join("")
             }, a.update && "object" == typeof a.update) {
                 var g = a.update;
-                f(e(g), function (a) {
+                f(e(g), function(a) {
                     d[a] = g[a]
                 }), a.update = d
             } else a.update = d
     }
     var d = a("esprima").parse,
-        e = Object.keys || function (a) {
+        e = Object.keys || function(a) {
             var b = [];
             for (var c in a) b.push(c);
             return b
-        }, f = function (a, b) {
+        }, f = function(a, b) {
             if (a.forEach) return a.forEach(b);
             for (var c = 0; c < a.length; c++) b.call(a, a[c], c, a)
-        }, g = Array.isArray || function (a) {
+        }, g = Array.isArray || function(a) {
             return "[object Array]" === Object.prototype.toString.call(a)
         };
-    b.exports = function (a, b, h) {
+    b.exports = function(a, b, h) {
         "function" == typeof b && (h = b, b = {}), "object" == typeof a && (b = a, a = b.source, delete b.source), a = void 0 === a ? b.source : a, b.range = !0, "string" != typeof a && (a = String(a));
         var i = d(a, b),
             j = {
                 chunks: a.split(""),
-                toString: function () {
+                toString: function() {
                     return j.chunks.join("")
                 },
-                inspect: function () {
+                inspect: function() {
                     return j.toString()
                 }
             };
         return function k(a, b) {
-            c(a, b, j.chunks), f(e(a), function (b) {
+            c(a, b, j.chunks), f(e(a), function(b) {
                 if ("parent" !== b) {
                     var d = a[b];
-                    g(d) ? f(d, function (b) {
+                    g(d) ? f(d, function(b) {
                         b && "string" == typeof b.type && k(b, a)
                     }) : d && "string" == typeof d.type && (c(d, a, j.chunks), k(d, a))
                 }
             }), h(a)
         }(i, void 0), j
     }, window.falafel = b.exports
-}(function () {
+}(function() {
     return {
         parse: esprima.parse
     }
@@ -1587,162 +1571,162 @@ function (a, b) {
 });
 var inBrowser = "undefined" != typeof window && this === window,
     parseAndModify = inBrowser ? window.falafel : require("falafel");
-(inBrowser ? window : exports).blanket = function () {
-    var a, b = ["ExpressionStatement", "BreakStatement", "ContinueStatement", "VariableDeclaration", "ReturnStatement", "ThrowStatement", "TryStatement", "FunctionDeclaration", "IfStatement", "WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "SwitchStatement", "WithStatement"],
-        c = ["IfStatement", "WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "WithStatement"],
-        d = Math.floor(1e3 * Math.random()),
-        e = {}, f = {
-            reporter: null,
-            adapter: null,
-            filter: null,
-            customVariable: null,
-            loader: null,
-            ignoreScriptError: !1,
-            existingRequireJS: !1,
-            autoStart: !1,
-            timeout: 180,
-            ignoreCors: !1,
-            branchTracking: !1,
-            sourceURL: !1,
-            debug: !1,
-            engineOnly: !1,
-            testReadyCallback: null,
-            commonJS: !1,
-            instrumentCache: !1,
-            modulePattern: null
-        };
-    return inBrowser && "undefined" != typeof window.blanket && (a = window.blanket.noConflict()), _blanket = {
-        noConflict: function () {
-            return a ? a : _blanket
-        },
-        _getCopyNumber: function () {
-            return d
-        },
-        extend: function (a) {
-            _blanket._extend(_blanket, a)
-        },
-        _extend: function (a, b) {
-            if (b)
-                for (var c in b) a[c] instanceof Object && "function" != typeof a[c] ? _blanket._extend(a[c], b[c]) : a[c] = b[c]
-        },
-        getCovVar: function () {
-            var a = _blanket.options("customVariable");
-            return a ? (_blanket.options("debug") && console.log("BLANKET-Using custom tracking variable:", a), inBrowser ? "window." + a : a) : inBrowser ? "window._$blanket" : "_$jscoverage"
-        },
-        options: function (a, b) {
-            if ("string" != typeof a) _blanket._extend(f, a);
-            else {
-                if ("undefined" == typeof b) return f[a];
-                f[a] = b
+(inBrowser ? window : exports).blanket = function() {
+        var a, b = ["ExpressionStatement", "BreakStatement", "ContinueStatement", "VariableDeclaration", "ReturnStatement", "ThrowStatement", "TryStatement", "FunctionDeclaration", "IfStatement", "WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "SwitchStatement", "WithStatement"],
+            c = ["IfStatement", "WhileStatement", "DoWhileStatement", "ForStatement", "ForInStatement", "WithStatement"],
+            d = Math.floor(1e3 * Math.random()),
+            e = {}, f = {
+                reporter: null,
+                adapter: null,
+                filter: null,
+                customVariable: null,
+                loader: null,
+                ignoreScriptError: !1,
+                existingRequireJS: !1,
+                autoStart: !1,
+                timeout: 180,
+                ignoreCors: !1,
+                branchTracking: !1,
+                sourceURL: !1,
+                debug: !1,
+                engineOnly: !1,
+                testReadyCallback: null,
+                commonJS: !1,
+                instrumentCache: !1,
+                modulePattern: null
+            };
+        return inBrowser && "undefined" != typeof window.blanket && (a = window.blanket.noConflict()), _blanket = {
+            noConflict: function() {
+                return a ? a : _blanket
+            },
+            _getCopyNumber: function() {
+                return d
+            },
+            extend: function(a) {
+                _blanket._extend(_blanket, a)
+            },
+            _extend: function(a, b) {
+                if (b)
+                    for (var c in b) a[c] instanceof Object && "function" != typeof a[c] ? _blanket._extend(a[c], b[c]) : a[c] = b[c]
+            },
+            getCovVar: function() {
+                var a = _blanket.options("customVariable");
+                return a ? (_blanket.options("debug") && console.log("BLANKET-Using custom tracking variable:", a), inBrowser ? "window." + a : a) : inBrowser ? "window._$blanket" : "_$jscoverage"
+            },
+            options: function(a, b) {
+                if ("string" != typeof a) _blanket._extend(f, a);
+                else {
+                    if ("undefined" == typeof b) return f[a];
+                    f[a] = b
+                }
+            },
+            instrument: function(a, b) {
+                var c = a.inputFile,
+                    d = a.inputFileName;
+                if (_blanket.options("instrumentCache") && sessionStorage && sessionStorage.getItem("blanket_instrument_store-" + d)) _blanket.options("debug") && console.log("BLANKET-Reading instrumentation from cache: ", d), b(sessionStorage.getItem("blanket_instrument_store-" + d));
+                else {
+                    var e = _blanket._prepareSource(c);
+                    _blanket._trackingArraySetup = [], c = c.replace(/^\#\!.*/, "");
+                    var f = parseAndModify(c, {
+                        loc: !0,
+                        comment: !0
+                    }, _blanket._addTracking(d));
+                    f = _blanket._trackingSetup(d, e) + f, _blanket.options("sourceURL") && (f += "\n//@ sourceURL=" + d.replace("http://", "")), _blanket.options("debug") && console.log("BLANKET-Instrumented file: ", d), _blanket.options("instrumentCache") && sessionStorage && (_blanket.options("debug") && console.log("BLANKET-Saving instrumentation to cache: ", d), sessionStorage.setItem("blanket_instrument_store-" + d, f)), b(f)
+                }
+            },
+            _trackingArraySetup: [],
+            _branchingArraySetup: [],
+            _prepareSource: function(a) {
+                return a.replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/(\r\n|\n|\r)/gm, "\n").split("\n")
+            },
+            _trackingSetup: function(a, b) {
+                var c = _blanket.options("branchTracking"),
+                    d = b.join("',\n'"),
+                    e = "",
+                    f = _blanket.getCovVar();
+                return e += "if (typeof " + f + " === 'undefined') " + f + " = {};\n", c && (e += "var _$branchFcn=function(f,l,c,r){ ", e += "if (!!r) { ", e += f + "[f].branchData[l][c][0] = " + f + "[f].branchData[l][c][0] || [];", e += f + "[f].branchData[l][c][0].push(r); }", e += "else { ", e += f + "[f].branchData[l][c][1] = " + f + "[f].branchData[l][c][1] || [];", e += f + "[f].branchData[l][c][1].push(r); }", e += "return r;};\n"), e += "if (typeof " + f + "['" + a + "'] === 'undefined'){", e += f + "['" + a + "']=[];\n", c && (e += f + "['" + a + "'].branchData=[];\n"), e += f + "['" + a + "'].source=['" + d + "'];\n", _blanket._trackingArraySetup.sort(function(a, b) {
+                    return parseInt(a, 10) > parseInt(b, 10)
+                }).forEach(function(b) {
+                    e += f + "['" + a + "'][" + b + "]=0;\n"
+                }), c && _blanket._branchingArraySetup.sort(function(a, b) {
+                    return a.line > b.line
+                }).sort(function(a, b) {
+                    return a.column > b.column
+                }).forEach(function(b) {
+                    b.file === a && (e += "if (typeof " + f + "['" + a + "'].branchData[" + b.line + "] === 'undefined'){\n", e += f + "['" + a + "'].branchData[" + b.line + "]=[];\n", e += "}", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "] = [];\n", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "].consequent = " + JSON.stringify(b.consequent) + ";\n", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "].alternate = " + JSON.stringify(b.alternate) + ";\n")
+                }), e += "}"
+            },
+            _blockifyIf: function(a) {
+                if (c.indexOf(a.type) > -1) {
+                    var b = a.consequent || a.body,
+                        d = a.alternate;
+                    d && "BlockStatement" !== d.type && d.update("{\n" + d.source() + "}\n"), b && "BlockStatement" !== b.type && b.update("{\n" + b.source() + "}\n")
+                }
+            },
+            _trackBranch: function(a, b) {
+                var c = a.loc.start.line,
+                    d = a.loc.start.column;
+                _blanket._branchingArraySetup.push({
+                    line: c,
+                    column: d,
+                    file: b,
+                    consequent: a.consequent.loc,
+                    alternate: a.alternate.loc
+                });
+                var e = "_$branchFcn('" + b + "'," + c + "," + d + "," + a.test.source() + ")?" + a.consequent.source() + ":" + a.alternate.source();
+                a.update(e)
+            },
+            _addTracking: function(a) {
+                var c = _blanket.getCovVar();
+                return function(d) {
+                    if (_blanket._blockifyIf(d), b.indexOf(d.type) > -1 && "LabeledStatement" !== d.parent.type) {
+                        if (_blanket._checkDefs(d, a), "VariableDeclaration" === d.type && ("ForStatement" === d.parent.type || "ForInStatement" === d.parent.type)) return;
+                        if (!d.loc || !d.loc.start) throw new Error("The instrumenter encountered a node with no location: " + Object.keys(d));
+                        d.update(c + "['" + a + "'][" + d.loc.start.line + "]++;\n" + d.source()), _blanket._trackingArraySetup.push(d.loc.start.line)
+                    } else _blanket.options("branchTracking") && "ConditionalExpression" === d.type && _blanket._trackBranch(d, a)
+                }
+            },
+            _checkDefs: function(a, b) {
+                if (inBrowser) {
+                    if ("VariableDeclaration" === a.type && a.declarations && a.declarations.forEach(function(c) {
+                        if ("window" === c.id.name) throw new Error("Instrumentation error, you cannot redefine the 'window' variable in  " + b + ":" + a.loc.start.line)
+                    }), "FunctionDeclaration" === a.type && a.params && a.params.forEach(function(c) {
+                        if ("window" === c.name) throw new Error("Instrumentation error, you cannot redefine the 'window' variable in  " + b + ":" + a.loc.start.line)
+                    }), "ExpressionStatement" === a.type && a.expression && a.expression.left && a.expression.left.object && a.expression.left.property && a.expression.left.object.name + "." + a.expression.left.property.name === _blanket.getCovVar()) throw new Error("Instrumentation error, you cannot redefine the coverage variable in  " + b + ":" + a.loc.start.line)
+                } else if ("ExpressionStatement" === a.type && a.expression && a.expression.left && !a.expression.left.object && !a.expression.left.property && a.expression.left.name === _blanket.getCovVar()) throw new Error("Instrumentation error, you cannot redefine the coverage variable in  " + b + ":" + a.loc.start.line)
+            },
+            setupCoverage: function() {
+                e.instrumentation = "blanket", e.stats = {
+                    suites: 0,
+                    tests: 0,
+                    passes: 0,
+                    pending: 0,
+                    failures: 0,
+                    start: new Date
+                }
+            },
+            _checkIfSetup: function() {
+                if (!e.stats) throw new Error("You must call blanket.setupCoverage() first.")
+            },
+            onTestStart: function() {
+                _blanket.options("debug") && console.log("BLANKET-Test event started"), this._checkIfSetup(), e.stats.tests++, e.stats.pending++
+            },
+            onTestDone: function(a, b) {
+                this._checkIfSetup(), b === a ? e.stats.passes++ : e.stats.failures++, e.stats.pending--
+            },
+            onModuleStart: function() {
+                this._checkIfSetup(), e.stats.suites++
+            },
+            onTestsDone: function() {
+                _blanket.options("debug") && console.log("BLANKET-Test event done"), this._checkIfSetup(), e.stats.end = new Date, inBrowser ? this.report(e) : (_blanket.options("branchTracking") || delete(inBrowser ? window : global)[_blanket.getCovVar()].branchFcn, this.options("reporter").call(this, e))
             }
-        },
-        instrument: function (a, b) {
-            var c = a.inputFile,
-                d = a.inputFileName;
-            if (_blanket.options("instrumentCache") && sessionStorage && sessionStorage.getItem("blanket_instrument_store-" + d)) _blanket.options("debug") && console.log("BLANKET-Reading instrumentation from cache: ", d), b(sessionStorage.getItem("blanket_instrument_store-" + d));
-            else {
-                var e = _blanket._prepareSource(c);
-                _blanket._trackingArraySetup = [], c = c.replace(/^\#\!.*/, "");
-                var f = parseAndModify(c, {
-                    loc: !0,
-                    comment: !0
-                }, _blanket._addTracking(d));
-                f = _blanket._trackingSetup(d, e) + f, _blanket.options("sourceURL") && (f += "\n//@ sourceURL=" + d.replace("http://", "")), _blanket.options("debug") && console.log("BLANKET-Instrumented file: ", d), _blanket.options("instrumentCache") && sessionStorage && (_blanket.options("debug") && console.log("BLANKET-Saving instrumentation to cache: ", d), sessionStorage.setItem("blanket_instrument_store-" + d, f)), b(f)
-            }
-        },
-        _trackingArraySetup: [],
-        _branchingArraySetup: [],
-        _prepareSource: function (a) {
-            return a.replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/(\r\n|\n|\r)/gm, "\n").split("\n")
-        },
-        _trackingSetup: function (a, b) {
-            var c = _blanket.options("branchTracking"),
-                d = b.join("',\n'"),
-                e = "",
-                f = _blanket.getCovVar();
-            return e += "if (typeof " + f + " === 'undefined') " + f + " = {};\n", c && (e += "var _$branchFcn=function(f,l,c,r){ ", e += "if (!!r) { ", e += f + "[f].branchData[l][c][0] = " + f + "[f].branchData[l][c][0] || [];", e += f + "[f].branchData[l][c][0].push(r); }", e += "else { ", e += f + "[f].branchData[l][c][1] = " + f + "[f].branchData[l][c][1] || [];", e += f + "[f].branchData[l][c][1].push(r); }", e += "return r;};\n"), e += "if (typeof " + f + "['" + a + "'] === 'undefined'){", e += f + "['" + a + "']=[];\n", c && (e += f + "['" + a + "'].branchData=[];\n"), e += f + "['" + a + "'].source=['" + d + "'];\n", _blanket._trackingArraySetup.sort(function (a, b) {
-                return parseInt(a, 10) > parseInt(b, 10)
-            }).forEach(function (b) {
-                e += f + "['" + a + "'][" + b + "]=0;\n"
-            }), c && _blanket._branchingArraySetup.sort(function (a, b) {
-                return a.line > b.line
-            }).sort(function (a, b) {
-                return a.column > b.column
-            }).forEach(function (b) {
-                b.file === a && (e += "if (typeof " + f + "['" + a + "'].branchData[" + b.line + "] === 'undefined'){\n", e += f + "['" + a + "'].branchData[" + b.line + "]=[];\n", e += "}", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "] = [];\n", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "].consequent = " + JSON.stringify(b.consequent) + ";\n", e += f + "['" + a + "'].branchData[" + b.line + "][" + b.column + "].alternate = " + JSON.stringify(b.alternate) + ";\n")
-            }), e += "}"
-        },
-        _blockifyIf: function (a) {
-            if (c.indexOf(a.type) > -1) {
-                var b = a.consequent || a.body,
-                    d = a.alternate;
-                d && "BlockStatement" !== d.type && d.update("{\n" + d.source() + "}\n"), b && "BlockStatement" !== b.type && b.update("{\n" + b.source() + "}\n")
-            }
-        },
-        _trackBranch: function (a, b) {
-            var c = a.loc.start.line,
-                d = a.loc.start.column;
-            _blanket._branchingArraySetup.push({
-                line: c,
-                column: d,
-                file: b,
-                consequent: a.consequent.loc,
-                alternate: a.alternate.loc
-            });
-            var e = "_$branchFcn('" + b + "'," + c + "," + d + "," + a.test.source() + ")?" + a.consequent.source() + ":" + a.alternate.source();
-            a.update(e)
-        },
-        _addTracking: function (a) {
-            var c = _blanket.getCovVar();
-            return function (d) {
-                if (_blanket._blockifyIf(d), b.indexOf(d.type) > -1 && "LabeledStatement" !== d.parent.type) {
-                    if (_blanket._checkDefs(d, a), "VariableDeclaration" === d.type && ("ForStatement" === d.parent.type || "ForInStatement" === d.parent.type)) return;
-                    if (!d.loc || !d.loc.start) throw new Error("The instrumenter encountered a node with no location: " + Object.keys(d));
-                    d.update(c + "['" + a + "'][" + d.loc.start.line + "]++;\n" + d.source()), _blanket._trackingArraySetup.push(d.loc.start.line)
-                } else _blanket.options("branchTracking") && "ConditionalExpression" === d.type && _blanket._trackBranch(d, a)
-            }
-        },
-        _checkDefs: function (a, b) {
-            if (inBrowser) {
-                if ("VariableDeclaration" === a.type && a.declarations && a.declarations.forEach(function (c) {
-                    if ("window" === c.id.name) throw new Error("Instrumentation error, you cannot redefine the 'window' variable in  " + b + ":" + a.loc.start.line)
-                }), "FunctionDeclaration" === a.type && a.params && a.params.forEach(function (c) {
-                    if ("window" === c.name) throw new Error("Instrumentation error, you cannot redefine the 'window' variable in  " + b + ":" + a.loc.start.line)
-                }), "ExpressionStatement" === a.type && a.expression && a.expression.left && a.expression.left.object && a.expression.left.property && a.expression.left.object.name + "." + a.expression.left.property.name === _blanket.getCovVar()) throw new Error("Instrumentation error, you cannot redefine the coverage variable in  " + b + ":" + a.loc.start.line)
-            } else if ("ExpressionStatement" === a.type && a.expression && a.expression.left && !a.expression.left.object && !a.expression.left.property && a.expression.left.name === _blanket.getCovVar()) throw new Error("Instrumentation error, you cannot redefine the coverage variable in  " + b + ":" + a.loc.start.line)
-        },
-        setupCoverage: function () {
-            e.instrumentation = "blanket", e.stats = {
-                suites: 0,
-                tests: 0,
-                passes: 0,
-                pending: 0,
-                failures: 0,
-                start: new Date
-            }
-        },
-        _checkIfSetup: function () {
-            if (!e.stats) throw new Error("You must call blanket.setupCoverage() first.")
-        },
-        onTestStart: function () {
-            _blanket.options("debug") && console.log("BLANKET-Test event started"), this._checkIfSetup(), e.stats.tests++, e.stats.pending++
-        },
-        onTestDone: function (a, b) {
-            this._checkIfSetup(), b === a ? e.stats.passes++ : e.stats.failures++, e.stats.pending--
-        },
-        onModuleStart: function () {
-            this._checkIfSetup(), e.stats.suites++
-        },
-        onTestsDone: function () {
-            _blanket.options("debug") && console.log("BLANKET-Test event done"), this._checkIfSetup(), e.stats.end = new Date, inBrowser ? this.report(e) : (_blanket.options("branchTracking") || delete (inBrowser ? window : global)[_blanket.getCovVar()].branchFcn, this.options("reporter").call(this, e))
         }
-    }
 }(),
-function (a) {
+function(a) {
     var b = a.options;
     a.extend({
         outstandingRequireFiles: [],
-        options: function (c, d) {
+        options: function(c, d) {
             var e = {};
             if ("string" != typeof c) b(c), e = c;
             else {
@@ -1751,13 +1735,13 @@ function (a) {
             }
             e.adapter && a._loadFile(e.adapter), e.loader && a._loadFile(e.loader)
         },
-        requiringFile: function (b, c) {
+        requiringFile: function(b, c) {
             "undefined" == typeof b ? a.outstandingRequireFiles = [] : "undefined" == typeof c ? a.outstandingRequireFiles.push(b) : a.outstandingRequireFiles.splice(a.outstandingRequireFiles.indexOf(b), 1)
         },
-        requireFilesLoaded: function () {
+        requireFilesLoaded: function() {
             return 0 === a.outstandingRequireFiles.length
         },
-        showManualLoader: function () {
+        showManualLoader: function() {
             if (!document.getElementById("blanketLoaderDialog")) {
                 var a = "<div class='blanketDialogOverlay'>";
                 a += "&nbsp;</div>", a += "<div class='blanketDialogVerticalOffset'>", a += "<div class='blanketDialogBox'>", a += "<b>Error:</b> Blanket.js encountered a cross origin request error while instrumenting the source files.  ", a += "<br><br>This is likely caused by the source files being referenced locally (using the file:// protocol). ", a += "<br><br>Some solutions include <a href='http://askubuntu.com/questions/160245/making-google-chrome-option-allow-file-access-from-files-permanent' target='_blank'>starting Chrome with special flags</a>, <a target='_blank' href='https://github.com/remy/servedir'>running a server locally</a>, or using a browser without these CORS restrictions (Safari).", a += "<br>", "undefined" != typeof FileReader && (a += "<br>Or, try the experimental loader.  When prompted, simply click on the directory containing all the source files you want covered.", a += "<a href='javascript:document.getElementById(\"fileInput\").click();'>Start Loader</a>", a += "<input type='file' type='application/x-javascript' accept='application/x-javascript' webkitdirectory id='fileInput' multiple onchange='window.blanket.manualFileLoader(this.files)' style='visibility:hidden;position:absolute;top:-50;left:-50'/>"), a += "<br><span style='float:right;cursor:pointer;'  onclick=document.getElementById('blanketLoaderDialog').style.display='none';>Close</span>", a += "<div style='clear:both'></div>", a += "</div></div>";
@@ -1769,20 +1753,20 @@ function (a) {
                 d.id = "blanketLoaderDialog", d.className = "blanketDialogWrapper", d.innerHTML = a, document.body.insertBefore(d, document.body.firstChild)
             }
         },
-        manualFileLoader: function (a) {
+        manualFileLoader: function(a) {
             function b(a) {
                 var b = new FileReader;
                 b.onload = g, b.readAsText(a)
             }
             var c = Array.prototype.slice;
-            a = c.call(a).filter(function (a) {
+            a = c.call(a).filter(function(a) {
                 return "" !== a.type
             });
             var d = a.length - 1,
                 e = 0,
                 f = {};
             sessionStorage.blanketSessionLoader && (f = JSON.parse(sessionStorage.blanketSessionLoader));
-            var g = function (c) {
+            var g = function(c) {
                 var g = c.currentTarget.result,
                     h = a[e],
                     i = h.webkitRelativePath && "" !== h.webkitRelativePath ? h.webkitRelativePath : h.name;
@@ -1790,23 +1774,23 @@ function (a) {
             };
             b(a[e])
         },
-        _loadFile: function (b) {
+        _loadFile: function(b) {
             if ("undefined" != typeof b) {
                 var c = new XMLHttpRequest;
                 c.open("GET", b, !1), c.send(), a._addScript(c.responseText)
             }
         },
-        _addScript: function (a) {
+        _addScript: function(a) {
             var b = document.createElement("script");
             b.type = "text/javascript", b.text = a, (document.body || document.getElementsByTagName("head")[0]).appendChild(b)
         },
-        hasAdapter: function () {
+        hasAdapter: function() {
             return null !== a.options("adapter")
         },
-        report: function (b) {
+        report: function(b) {
             document.getElementById("blanketLoaderDialog") || (a.blanketSession = null), b.files = window._$blanket;
             blanket.options("commonJS") ? blanket._commonjs.require : window.require;
-            if (!b.files || !Object.keys(b.files).length) return void (a.options("debug") && console.log("BLANKET-Reporting No files were instrumented."));
+            if (!b.files || !Object.keys(b.files).length) return void(a.options("debug") && console.log("BLANKET-Reporting No files were instrumented."));
             if ("undefined" != typeof b.files.branchFcn && delete b.files.branchFcn, "string" == typeof a.options("reporter")) a._loadFile(a.options("reporter")), a.customReporter(b, a.options("reporter_options"));
             else if ("function" == typeof a.options("reporter")) a.options("reporter")(b, a.options("reporter_options"));
             else {
@@ -1814,50 +1798,50 @@ function (a) {
                 a.defaultReporter(b, a.options("reporter_options"))
             }
         },
-        _bindStartTestRunner: function (a, b) {
+        _bindStartTestRunner: function(a, b) {
             a ? a(b) : window.addEventListener("load", b, !1)
         },
-        _loadSourceFiles: function (b) {
+        _loadSourceFiles: function(b) {
             blanket.options("commonJS") ? blanket._commonjs.require : window.require;
             a.options("debug") && console.log("BLANKET-Collecting page scripts");
             var c = a.utils.collectPageScripts();
             if (0 === c.length) b();
             else {
-                sessionStorage.blanketSessionLoader && (a.blanketSession = JSON.parse(sessionStorage.blanketSessionLoader)), c.forEach(function (b) {
+                sessionStorage.blanketSessionLoader && (a.blanketSession = JSON.parse(sessionStorage.blanketSessionLoader)), c.forEach(function(b) {
                     a.utils.cache[b] = {
                         loaded: !1
                     }
                 });
                 var d = -1;
-                a.utils.loadAll(function (a) {
+                a.utils.loadAll(function(a) {
                     return a ? "undefined" != typeof c[d + 1] : (d++, d >= c.length ? null : c[d])
                 }, b)
             }
         },
-        beforeStartTestRunner: function (b) {
-            b = b || {}, b.checkRequirejs = "undefined" == typeof b.checkRequirejs ? !0 : b.checkRequirejs, b.callback = b.callback || function () { }, b.coverage = "undefined" == typeof b.coverage ? !0 : b.coverage, b.coverage ? a._bindStartTestRunner(b.bindEvent, function () {
-                a._loadSourceFiles(function () {
-                    var c = function () {
+        beforeStartTestRunner: function(b) {
+            b = b || {}, b.checkRequirejs = "undefined" == typeof b.checkRequirejs ? !0 : b.checkRequirejs, b.callback = b.callback || function() {}, b.coverage = "undefined" == typeof b.coverage ? !0 : b.coverage, b.coverage ? a._bindStartTestRunner(b.bindEvent, function() {
+                a._loadSourceFiles(function() {
+                    var c = function() {
                         return b.condition ? b.condition() : a.requireFilesLoaded()
-                    }, d = function () {
-                        if (c()) {
-                            a.options("debug") && console.log("BLANKET-All files loaded, init start test runner callback.");
-                            var e = a.options("testReadyCallback");
-                            e ? "function" == typeof e ? e(b.callback) : "string" == typeof e && (a._addScript(e), b.callback()) : b.callback()
-                        } else setTimeout(d, 13)
-                    };
+                    }, d = function() {
+                            if (c()) {
+                                a.options("debug") && console.log("BLANKET-All files loaded, init start test runner callback.");
+                                var e = a.options("testReadyCallback");
+                                e ? "function" == typeof e ? e(b.callback) : "string" == typeof e && (a._addScript(e), b.callback()) : b.callback()
+                            } else setTimeout(d, 13)
+                        };
                     d()
                 })
             }) : b.callback()
         },
         utils: {
-            qualifyURL: function (a) {
+            qualifyURL: function(a) {
                 var b = document.createElement("a");
                 return b.href = a, b.href
             }
         }
     })
-}(blanket), blanket.defaultReporter = function (a) {
+}(blanket), blanket.defaultReporter = function(a) {
     function b(a) {
         var b = document.getElementById(a);
         b.style.display = "block" === b.style.display ? "none" : "block"
@@ -1890,9 +1874,9 @@ function (a) {
                         };
                         j = "</span>"
                     } else if (!f) return {
-                        src: i + c(b),
-                        cols: f
-                    }
+                    src: i + c(b),
+                    cols: f
+                }
             } else {
                 if (!f) return {
                     src: i + c(b) + "</span>",
@@ -1930,7 +1914,7 @@ function (a) {
         h = document.head,
         i = 0,
         j = document.body,
-        k = Object.keys(a.files).some(function (b) {
+        k = Object.keys(a.files).some(function(b) {
             return "undefined" != typeof a.files[b].branchData
         }),
         l = "<div id='blanket-main'><div class='blanket bl-title'><div class='bl-cl bl-file'><a href='http://alex-seville.github.com/blanket/' target='_blank' class='bl-logo'>Blanket.js</a> results</div><div class='bl-cl rs'>Coverage (%)</div><div class='bl-cl rs'>Covered/Total Smts.</div>" + (k ? "<div class='bl-cl rs'>Covered/Total Branches</div>" : "") + "<div style='clear:both;'></div></div>",
@@ -1938,13 +1922,13 @@ function (a) {
     grandTotalTemplate = "<div class='blanket grand-total {{statusclass}}'><div class='bl-cl'>{{rowTitle}}</div><div class='bl-cl rs'>{{percentage}} %</div><div class='bl-cl rs'>{{numberCovered}}/{{totalSmts}}</div>" + (k ? "<div class='bl-cl rs'>{{passedBranches}}/{{totalBranches}}</div>" : "") + "<div style='clear:both;'></div></div>";
     var n = document.createElement("script");
     n.type = "text/javascript", n.text = b.toString().replace("function " + b.name, "function blanket_toggleSource"), j.appendChild(n);
-    var o = function (a, b) {
+    var o = function(a, b) {
         return Math.round(a / b * 100 * 100) / 100
-    }, p = function (a, b, c) {
-        var d = document.createElement(a);
-        d.innerHTML = c, b.appendChild(d)
-    }, q = [],
-        r = function (a) {
+    }, p = function(a, b, c) {
+            var d = document.createElement(a);
+            d.innerHTML = c, b.appendChild(d)
+        }, q = [],
+        r = function(a) {
             return "undefined" != typeof a
         }, s = a.files,
         t = {
@@ -1973,7 +1957,7 @@ function (a) {
                             E = 0;
                         C = e(E, C, D, 0, x + 1).src
                     } else C = q.length ? e(0, C, null, 0, x + 1).src : c(C);
-                else C = c(C);
+                    else C = c(C);
                 var F = "";
                 y[x + 1] ? (A += 1, z += 1, F = "hit") : 0 === y[x + 1] && (z++, F = "miss"), B[x + 1] = "<div class='" + F + "'><span class=''>" + (x + 1) + "</span>" + C + "</div>"
             }
@@ -1992,7 +1976,7 @@ function (a) {
                 M = m.replace("{{file}}", w).replace("{{percentage}}", L).replace("{{numberCovered}}", A).replace(/\{\{fileNumber\}\}/g, i).replace("{{totalSmts}}", z).replace("{{totalBranches}}", G).replace("{{passedBranches}}", H).replace("{{source}}", B.join(" "));
             M = g > L ? M.replace("{{statusclass}}", "bl-error") : M.replace("{{statusclass}}", "bl-success"), l += M
         }
-    var N = function (a, b, c, d, e) {
+    var N = function(a, b, c, d, e) {
         var f = o(b, a),
             h = g > f ? "bl-error" : "bl-success",
             i = e ? "Total for module: " + e : "Global total",
@@ -2010,10 +1994,10 @@ function (a) {
             }
     N(t.totalSmts, t.numberOfFilesCovered, t.totalBranches, t.passedBranches, null), l += "</div>", p("style", h, f), document.getElementById("blanket-main") ? document.getElementById("blanket-main").innerHTML = l.slice(23, -6) : p("div", j, l)
 },
-function () {
+function() {
     var a = {}, b = Array.prototype.slice,
         c = b.call(document.scripts);
-    b.call(c[c.length - 1].attributes).forEach(function (b) {
+    b.call(c[c.length - 1].attributes).forEach(function(b) {
         if ("data-cover-only" === b.nodeName && (a.filter = b.nodeValue), "data-cover-never" === b.nodeName && (a.antifilter = b.nodeValue), "data-cover-reporter" === b.nodeName && (a.reporter = b.nodeValue), "data-cover-adapter" === b.nodeName && (a.adapter = b.nodeValue), "data-cover-loader" === b.nodeName && (a.loader = b.nodeValue), "data-cover-timeout" === b.nodeName && (a.timeout = b.nodeValue), "data-cover-modulepattern" === b.nodeName && (a.modulePattern = b.nodeValue), "data-cover-reporter-options" === b.nodeName) try {
             a.reporter_options = JSON.parse(b.nodeValue)
         } catch (c) {
@@ -2025,17 +2009,17 @@ function () {
         }
     }), blanket.options(a), "undefined" != typeof requirejs && blanket.options("existingRequireJS", !0), blanket.options("commonJS") && (blanket._commonjs = {})
 }(),
-function (a) {
+function(a) {
     a.extend({
         utils: {
-            normalizeBackslashes: function (a) {
+            normalizeBackslashes: function(a) {
                 return a.replace(/\\/g, "/")
             },
-            matchPatternAttribute: function (b, c) {
+            matchPatternAttribute: function(b, c) {
                 if ("string" == typeof c) {
                     if (0 === c.indexOf("[")) {
                         var d = c.slice(1, c.length - 1).split(",");
-                        return d.some(function (c) {
+                        return d.some(function(c) {
                             return a.utils.matchPatternAttribute(b, a.utils.normalizeBackslashes(c.slice(1, -1)))
                         })
                     }
@@ -2047,80 +2031,80 @@ function (a) {
                     }
                     return 0 === c.indexOf("#") ? window[c.slice(1)].call(window, b) : b.indexOf(a.utils.normalizeBackslashes(c)) > -1
                 }
-                return c instanceof Array ? c.some(function (c) {
+                return c instanceof Array ? c.some(function(c) {
                     return a.utils.matchPatternAttribute(b, c)
                 }) : c instanceof RegExp ? c.test(b) : "function" == typeof c ? c.call(window, b) : void 0
             },
-            blanketEval: function (b) {
+            blanketEval: function(b) {
                 a._addScript(b)
             },
-            collectPageScripts: function () {
+            collectPageScripts: function() {
                 var b = Array.prototype.slice,
                     c = (b.call(document.scripts), []),
                     d = [],
                     e = a.options("filter");
                 if (null != e) {
                     var f = a.options("antifilter");
-                    c = b.call(document.scripts).filter(function (c) {
-                        return 1 === b.call(c.attributes).filter(function (b) {
+                    c = b.call(document.scripts).filter(function(c) {
+                        return 1 === b.call(c.attributes).filter(function(b) {
                             return "src" === b.nodeName && a.utils.matchPatternAttribute(b.nodeValue, e) && ("undefined" == typeof f || !a.utils.matchPatternAttribute(b.nodeValue, f))
                         }).length
                     })
                 } else c = b.call(document.querySelectorAll("script[data-cover]"));
-                return d = c.map(function (c) {
-                    return a.utils.qualifyURL(b.call(c.attributes).filter(function (a) {
+                return d = c.map(function(c) {
+                    return a.utils.qualifyURL(b.call(c.attributes).filter(function(a) {
                         return "src" === a.nodeName
                     })[0].nodeValue)
                 }), e || a.options("filter", "['" + d.join("','") + "']"), d
             },
-            loadAll: function (b, c) {
+            loadAll: function(b, c) {
                 var d = b(),
                     e = a.utils.scriptIsLoaded(d, a.utils.ifOrdered, b, c);
                 if (a.utils.cache[d] && a.utils.cache[d].loaded) e();
                 else {
-                    var f = function () {
+                    var f = function() {
                         a.options("debug") && console.log("BLANKET-Mark script:" + d + ", as loaded and move to next script."), e()
-                    }, g = function (b) {
-                        a.options("debug") && console.log("BLANKET-File loading finished"), "undefined" != typeof b && (a.options("debug") && console.log("BLANKET-Add file to DOM."), a._addScript(b)), f()
-                    };
+                    }, g = function(b) {
+                            a.options("debug") && console.log("BLANKET-File loading finished"), "undefined" != typeof b && (a.options("debug") && console.log("BLANKET-Add file to DOM."), a._addScript(b)), f()
+                        };
                     a.utils.attachScript({
                         url: d
-                    }, function (b) {
+                    }, function(b) {
                         a.utils.processFile(b, d, g, g)
                     })
                 }
             },
-            attachScript: function (b, c) {
+            attachScript: function(b, c) {
                 var d = a.options("timeout") || 3e3;
-                setTimeout(function () {
+                setTimeout(function() {
                     if (!a.utils.cache[b.url].loaded) throw new Error("error loading source script")
-                }, d), a.utils.getFile(b.url, c, function () {
+                }, d), a.utils.getFile(b.url, c, function() {
                     throw new Error("error loading source script")
                 })
             },
-            ifOrdered: function (b, c) {
+            ifOrdered: function(b, c) {
                 var d = b(!0);
                 d ? a.utils.loadAll(b, c) : c(new Error("Error in loading chain."))
             },
-            scriptIsLoaded: function (b, c, d, e) {
+            scriptIsLoaded: function(b, c, d, e) {
                 return a.options("debug") && console.log("BLANKET-Returning function"),
-                function () {
+                function() {
                     a.options("debug") && console.log("BLANKET-Marking file as loaded: " + b), a.utils.cache[b].loaded = !0, a.utils.allLoaded() ? (a.options("debug") && console.log("BLANKET-All files loaded"), e()) : c && (a.options("debug") && console.log("BLANKET-Load next file."), c(d, e))
                 }
             },
             cache: {},
-            allLoaded: function () {
+            allLoaded: function() {
                 for (var b = Object.keys(a.utils.cache), c = 0; c < b.length; c++)
                     if (!a.utils.cache[b[c]].loaded) return !1;
                 return !0
             },
-            processFile: function (b, c, d, e) {
+            processFile: function(b, c, d, e) {
                 var f = a.options("filter"),
                     g = a.options("antifilter");
                 "undefined" != typeof g && a.utils.matchPatternAttribute(c, g) ? (e(b), a.options("debug") && console.log("BLANKET-File will never be instrumented:" + c), a.requiringFile(c, !0)) : a.utils.matchPatternAttribute(c, f) ? (a.options("debug") && console.log("BLANKET-Attempting instrument of:" + c), a.instrument({
                     inputFile: b,
                     inputFileName: c
-                }, function (e) {
+                }, function(e) {
                     try {
                         a.options("debug") && console.log("BLANKET-instrument of:" + c + " was successfull."), a.utils.blanketEval(e), d(), a.requiringFile(c, !0)
                     } catch (f) {
@@ -2129,9 +2113,9 @@ function (a) {
                     }
                 })) : (a.options("debug") && console.log("BLANKET-Loading (without instrumenting) the file:" + c), e(b), a.requiringFile(c, !0))
             },
-            cacheXhrConstructor: function () {
+            cacheXhrConstructor: function() {
                 var a, b, c;
-                if ("undefined" != typeof XMLHttpRequest) a = XMLHttpRequest, this.createXhr = function () {
+                if ("undefined" != typeof XMLHttpRequest) a = XMLHttpRequest, this.createXhr = function() {
                     return new a
                 };
                 else if ("undefined" != typeof ActiveXObject) {
@@ -2140,26 +2124,26 @@ function (a) {
                         try {
                             new ActiveXObject(c);
                             break
-                        } catch (d) { }
+                        } catch (d) {}
                     }
-                    this.createXhr = function () {
+                    this.createXhr = function() {
                         return new a(c)
                     }
                 }
             },
-            craeteXhr: function () {
+            craeteXhr: function() {
                 throw new Error("cacheXhrConstructor is supposed to overwrite this function.")
             },
-            getFile: function (b, c, d, e) {
+            getFile: function(b, c, d, e) {
                 var f = !1;
                 if (a.blanketSession)
                     for (var g = Object.keys(a.blanketSession), h = 0; h < g.length; h++) {
                         var i = g[h];
-                        if (b.indexOf(i) > -1) return c(a.blanketSession[i]), void (f = !0)
+                        if (b.indexOf(i) > -1) return c(a.blanketSession[i]), void(f = !0)
                     }
                 if (!f) {
                     var j = a.utils.createXhr();
-                    j.open("GET", b, !0), e && e(j, b), j.onreadystatechange = function () {
+                    j.open("GET", b, !0), e && e(j, b), j.onreadystatechange = function() {
                         var a, e;
                         4 === j.readyState && (a = j.status, a > 399 && 600 > a ? (e = new Error(b + " HTTP status: " + a), e.xhr = j, d(e)) : c(j.responseText))
                     };
@@ -2173,60 +2157,60 @@ function (a) {
             }
         }
     }),
-    function () {
+    function() {
         var b = (blanket.options("commonJS") ? blanket._commonjs.require : window.require, blanket.options("commonJS") ? blanket._commonjs.requirejs : window.requirejs);
-        !a.options("engineOnly") && a.options("existingRequireJS") && (a.utils.oldloader = b.load, b.load = function (b, c, d) {
-            a.requiringFile(d), a.utils.getFile(d, function (e) {
-                a.utils.processFile(e, d, function () {
+        !a.options("engineOnly") && a.options("existingRequireJS") && (a.utils.oldloader = b.load, b.load = function(b, c, d) {
+            a.requiringFile(d), a.utils.getFile(d, function(e) {
+                a.utils.processFile(e, d, function() {
                     b.completeLoad(c)
-                }, function () {
+                }, function() {
                     a.utils.oldloader(b, c, d)
                 })
-            }, function (b) {
+            }, function(b) {
                 throw a.requiringFile(), b
             })
         }), a.utils.cacheXhrConstructor()
     }()
 }(blanket),
-function () {
+function() {
     if ("undefined" != typeof QUnit) {
-        var a = function () {
+        var a = function() {
             return window.QUnit.config.queue.length > 0 && blanket.noConflict().requireFilesLoaded()
         };
         QUnit.config.urlConfig[0].tooltip ? (QUnit.config.urlConfig.push({
             id: "coverage",
             label: "Enable coverage",
             tooltip: "Enable code coverage."
-        }), QUnit.urlParams.coverage || blanket.options("autoStart") ? (QUnit.begin(function () {
+        }), QUnit.urlParams.coverage || blanket.options("autoStart") ? (QUnit.begin(function() {
             blanket.noConflict().setupCoverage()
-        }), QUnit.done(function () {
+        }), QUnit.done(function() {
             blanket.noConflict().onTestsDone()
-        }), QUnit.moduleStart(function () {
+        }), QUnit.moduleStart(function() {
             blanket.noConflict().onModuleStart()
-        }), QUnit.testStart(function () {
+        }), QUnit.testStart(function() {
             blanket.noConflict().onTestStart()
-        }), QUnit.testDone(function (a) {
+        }), QUnit.testDone(function(a) {
             blanket.noConflict().onTestDone(a.total, a.passed)
         }), blanket.noConflict().beforeStartTestRunner({
             condition: a,
-            callback: function () {
+            callback: function() {
                 (!blanket.options("existingRequireJS") || blanket.options("autoStart")) && QUnit.start()
             }
         })) : (blanket.options("existingRequireJS") && (requirejs.load = _blanket.utils.oldloader), blanket.noConflict().beforeStartTestRunner({
             condition: a,
-            callback: function () {
+            callback: function() {
                 (!blanket.options("existingRequireJS") || blanket.options("autoStart")) && QUnit.start()
             },
             coverage: !1
-        }))) : (QUnit.begin = function () {
+        }))) : (QUnit.begin = function() {
             blanket.noConflict().setupCoverage()
-        }, QUnit.done = function () {
+        }, QUnit.done = function() {
             blanket.noConflict().onTestsDone()
-        }, QUnit.moduleStart = function () {
+        }, QUnit.moduleStart = function() {
             blanket.noConflict().onModuleStart()
-        }, QUnit.testStart = function () {
+        }, QUnit.testStart = function() {
             blanket.noConflict().onTestStart()
-        }, QUnit.testDone = function (a) {
+        }, QUnit.testDone = function(a) {
             blanket.noConflict().onTestDone(a.total, a.passed)
         }, blanket.beforeStartTestRunner({
             condition: a,
@@ -2234,5 +2218,3 @@ function () {
         }))
     }
 }();
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
