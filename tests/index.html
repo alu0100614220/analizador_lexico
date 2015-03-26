@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mocha.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <h1>Top Down Operator Precedence</h1>
+
+    <p><input type="file" id="files"x/></p>
+    <div width=100%><textarea id="INPUT" placeholder = "Introduzca el texto o arrastre el archivo que desea analizar."></textarea></div>
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <script src="../parse.js"></script>
+    <script src="../main.js"></script>
+    <script src="../tokens.js"></script>
+    <div id=botones>
+        
+        <input id="PARSE" value=Parse type=button class="mylink">
+       <input id="CLEAR" value=Limpiar type=button class="btn btn-primary" role="button">
+    </div>
+
+    <!-- <script src="json2.js"></script> -->
+    <pre id=OUTPUT></pre>
+
+    <script src="node_modules/chai/chai.js"></script>
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script src="blanket.js"
+        data-cover-adapter="mocha-blanket.js"></script>
+    <script src="../tokens.js" data-cover></script>
+    <script src="../parse.js"></script>
+    <script>mocha.setup('tdd')</script>
+    <script src="tests.js"></script>
+
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>

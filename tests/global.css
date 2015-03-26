@@ -54,13 +54,3 @@ nav li {
 /* Supress borders after the button is pressed */
 #PARSE:focus {outline:0;
  }
-pre, xmp, plaintext, listing {
-  border: 2px solid black;
-  color: black;
-  font-family: monospace;
-  height: 3in;
-  overflow: auto;
-  padding: 0.5em;
-  width: 30%;
-  margin: auto;
-}
