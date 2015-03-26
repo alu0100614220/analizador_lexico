@@ -1,17 +1,24 @@
-##TDOP, Top Down Operator Precedence Mini JavaScript Parser
+Práctica: Analizador Léxico para Un Subconjunto de JavaScript
+===============
 
-## Author
+## Introducción
 
-Forked from Douglas Crockford TDOP project.
-douglas@crockford.com
-
-## Introduction
-
-* A full introduction is in the file [tdop.html](http://crguezl.github.io/ull-etsii-grado-pl-minijavascript/tdop.html) by Douglas Crockford.
-It contains a description of Vaughn Pratt's Top Down Operator Precedence,
+tdop.html contains a description of Vaughn Pratt's Top Down Operator Precedence,
 and describes a parser for Simplified JavaScript in Simplified JavaScript.
 
-* [Deployment at GitHub pages](http://crguezl.github.io/ull-etsii-grado-pl-minijavascript/). 
-  The app parses the input file  and displays its AST. 
+index.html parses parse.js and displays its AST. The page depends on json2.js
+(which is not included in this project) and on parse.js and tokens.js (which
+are).
 
-* The exercise is to understand and improve [tokens.js](https://github.com/crguezl/ull-etsii-grado-pl-minijavascript/blob/master/tokens.js). The `tokens` function  produces an array with the tokens for a given input string.
+## Heroku
+
+Página de la aplicación: [adrian-juan-csv](http://lexycalanalizer.herokuapp.com/).
+## Autores
+
+* [Juan Antonio Oliva Pérez](https://alu0100502923.github.io/)
+* [Adrian Mesa Jaubert](http://alu0100614220.github.io/)
+
+## Pruebas
+[Tests](http://lexycalanalizer.herokuapp.com/test.html).
+### Integración continua con Travis
+[![Build Status](https://travis-ci.org/alu0100614220/analizador_lexico.svg?branch=master)](https://travis-ci.org/alu0100614220/analizador_lexico)
