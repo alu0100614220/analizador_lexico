@@ -16,34 +16,64 @@
       <a href="https://github.com/alu0100614220/analizador_lexico" class="mylink">Repo at GitHub</a>
     </nav>
   </p>
-  <h2>Input</h2>
+<h2>Input</h2>
     <p> <input type="file" id="files"/> </p>
-  <script type="text/javascript">
-    document.getElementById('files').addEventListener('change', CopyMe, false);
-    function CopyMe(evt) {
-        var file = evt.target.files[0];
-        if (file) {
-                var reader = new FileReader();
-                reader.onload = function(e) { 
-                          INPUT.innerHTML = e.target.result;
-                        }
-                var c = reader.readAsText(file);
-            }
-        else { alert("Failed to load file"); }
-    }
-  </script>
-
-
+	
   <p>
   Fill the input box with javascript code:
   </p>
-  <textarea id="INPUT">
+	<textarea id="INPUT">
      var a = "hello"; // initialize a
      var b = function(x) {
              var c = 3;
                return x+c;
              };
   </textarea>
+	
+  <script type="text/javascript">
+  
+    document.getElementById('files').addEventListener('change', CopyMe, false);
+var dropZone = document.getElementById('INPUT');
+dropZone.addEventListener('dragover', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
+
+function CopyMe(evt) {
+   console.log ("Hago algo");
+    var file = evt.target.files[0];
+    if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                      INPUT.innerHTML = e.target.result;
+                    }
+            var c = reader.readAsText(file);
+        }
+    else { alert("Failed to load file"); }
+}
+
+function handleDragOver(evt) {
+ evt.stopPropagation();
+ evt.preventDefault();
+ evt.target.style.background = "purple";
+}
+
+function handleFileSelect(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+
+  var files = evt.dataTransfer.files; // FileList object.
+
+  var output = "";
+  for (var i = 0, f; f = files[i]; i++) {
+     var reader = new FileReader();
+     reader.readAsText(f);
+     setTimeout (function () {
+        document.getElementById('INPUT').innerHTML = reader.result;
+     }, 5)
+  }
+  evt.target.style.background = "white";
+}
+	
+  </script>
   <br>
 
 
@@ -62,10 +92,5 @@ function showHide() {
 <input id="PARSE" value=Parse type=button class="mylink">
 <input type=button value="Show/hide" onclick="return showHide();"/>
 <pre id=OUTPUT style= "display:none;"></pre>
-  
-
-
-
-
 </body>
 </html>
