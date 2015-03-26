@@ -17,7 +17,7 @@ html *
     width: 80%;
     background-color: #66FFCC; 
 }
-body { background-color: #99FFFF; }
+body { background-color: #CCFFCC; }
 #OUTPUT 
 {
     background-color: #66FFCC; 
@@ -59,4 +59,15 @@ nav li {
 }
 
 /* Supress borders after the button is pressed */
-#PARSE:focus {outline:0; }
+#PARSE:focus {outline:0;
+ }
+pre:hover, xmp, plaintext, listing {
+  border: 2px solid black;
+  color: black;
+  font-family: monospace;
+  height: 3in;
+  overflow: auto;
+  padding: 0.5em;
+  width: 50%;
+  margin: auto;
+}
