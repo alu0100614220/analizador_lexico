@@ -12,7 +12,7 @@ are).
 
 ## Heroku
 
-Página de la aplicación: [adrian-juan-csv](http://lexycalanalizer.herokuapp.com/).
+Página de la aplicación: [lexycalanalizer](http://lexycalanalizer.herokuapp.com/).
 ## Autores
 
 * [Juan Antonio Oliva Pérez](https://alu0100502923.github.io/)
