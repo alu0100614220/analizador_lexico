@@ -8,14 +8,15 @@ html *
 }
 #INPUT 
 {
-    border: none; 
-    color: black;
-    font-family: monospace;
-    height: 1in;
-    overflow: auto;
-    /* padding: 0.5em; */
-    width: 80%;
-    background-color: #66FFCC; 
+  border: 2px solid black;
+  color: black;
+  font-family: monospace;
+  height: 3in;
+  overflow: auto;
+  padding: 0.5em;
+  width: 50%;
+  margin: auto;
+  background-color: #66FFCC
 }
 body { background-color: #CCFFCC; }
 #OUTPUT 
@@ -48,14 +49,6 @@ nav li {
     list-style: none;
     display: inline;
     margin: 0 1em;
-}
-
-.mylink {
-  background-color: #66FFCC;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border: 5px solid #009900;
-  padding: 5px;
 }
 
 /* Supress borders after the button is pressed */
