@@ -9,22 +9,28 @@ html *
 #INPUT 
 {
   border: 2px solid black;
-  color: black;
+  color: white;
   font-family: monospace;
   height: 2in;
   overflow: auto;
   padding: 0.5em;
   width: 30%;
   margin: auto;
-  background-color: #66FFCC
+  background-color: #7281E2;
 }
-body { background-color: #CCFFCC; }
+body { 
+  background-image: url(fondo.jpg);
+  background-repeat: no-repeat;
+    background-attachment:fixed;
+ }
 #OUTPUT 
 {
-    background-color: #66FFCC; 
-    width: 50%;
+  color: white;
+  background-color: #7281E2;
+  width: 50%;
 }
 h1{
+  color: white;
   text-align: center;
   font-size: 300%;
   padding-bottom: 3%;
@@ -34,14 +40,15 @@ h1{
 
 
 a {
+  color: white;
   font-size: x-large;
   text-decoration:none;
 }
 
 a:link { color:#00FFFF; }
-a:visited { color:black; }
+a:visited { color:white; }
 a:hover{ 
-  background-color:blue; 
+  background-color:#7281E2; 
   color: #FFF;
 }
 a:active {color:#0000FF;}  /* selected link */
@@ -70,4 +77,10 @@ pre, xmp, plaintext, listing {
   padding: 0.5em;
   width: 30%;
   margin: auto;
+}
+#travis{
+  background-color:none;
+}
+#travis:hover{
+  background-color:transparent;
 }

@@ -15,8 +15,9 @@
     <nav>
       <a href="https://github.com/alu0100614220/analizador_lexico" class="mylink">Repo at GitHub</a>
     </nav>	
-	<nav>
-		<a href="tests/index.html" class="btn btn-primary" role="button" target=_blank>Tests</a>
+	 <nav>
+		<a href="tests/index.html" class="btn btn-primary" role="button" target=_blank>Tests</a></p>
+    <a href="https://travis-ci.org/alu0100614220/analizador_lexico" id="travis"><IMG src = "https://travis-ci.org/alu0100614220/analizador_lexico.svg?branch=master"></a>
 	</nav>
   </p>
 <h2>Input</h2>
@@ -56,7 +57,7 @@ function CopyMe(evt) {
 function handleDragOver(evt) {
  evt.stopPropagation();
  evt.preventDefault();
- evt.target.style.background = "purple";
+ evt.target.style.background = "green";
 }
 
 function handleFileSelect(evt) {
@@ -73,7 +74,7 @@ function handleFileSelect(evt) {
         document.getElementById('INPUT').innerHTML = reader.result;
      }, 5)
   }
-  evt.target.style.background = "white";
+  evt.target.style.background = "green";
 }
 	
   </script>
