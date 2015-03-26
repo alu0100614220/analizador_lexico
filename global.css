@@ -40,6 +40,10 @@ a {
 
 a:link { color:#00FFFF; }
 a:visited { color:black; }
+a:hover{ 
+  background-color:blue; 
+  color: #FFF;
+}
 a:active {color:#0000FF;}  /* selected link */
 
 
