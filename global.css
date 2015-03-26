@@ -11,10 +11,10 @@ html *
   border: 2px solid black;
   color: black;
   font-family: monospace;
-  height: 3in;
+  height: 2in;
   overflow: auto;
   padding: 0.5em;
-  width: 50%;
+  width: 30%;
   margin: auto;
   background-color: #66FFCC
 }
@@ -24,6 +24,13 @@ body { background-color: #CCFFCC; }
     background-color: #66FFCC; 
     width: 50%;
 }
+h1{
+  text-align: center;
+  font-size: 300%;
+  padding-bottom: 3%;
+  padding-top: 6%;
+  font-family: "Georgia", bold;
+  }
 
 
 a {
@@ -33,10 +40,6 @@ a {
 
 a:link { color:#00FFFF; }
 a:visited { color:black; }
-a:hover{ 
-  background-color:black; 
-  color: #FFF;
-}
 a:active {color:#0000FF;}  /* selected link */
 
 
