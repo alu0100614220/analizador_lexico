@@ -21,6 +21,7 @@ html *
 body { background-color: #CCFFCC; }
 #OUTPUT 
 {
+    border: 2px solid black;
     background-color: #66FFCC; 
     width: 50%;
 }
