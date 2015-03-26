@@ -19,6 +19,6 @@ Página de la aplicación: [lexycalanalizer](http://lexycalanalizer.herokuapp.co
 * [Adrian Mesa Jaubert](http://alu0100614220.github.io/)
 
 ## Pruebas
-[Tests](http://lexycalanalizer.herokuapp.com/test.html).
+[Tests](http://lexycalanalizer.herokuapp.com/tests/index.html).
 ### Integración continua con Travis
 [![Build Status](https://travis-ci.org/alu0100614220/analizador_lexico.svg?branch=master)](https://travis-ci.org/alu0100614220/analizador_lexico)
