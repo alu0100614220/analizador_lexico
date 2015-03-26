@@ -1,10 +1,13 @@
 html *
 {
     th {background-color: thistle; border: black solid 1px; text-align: left;
-        padding-left: 10px; padding-right: 10px; vertical-align: top;}
+        padding-left: 10px; padding-right: 10px; vertical-align: top;  color: white;
+}
     td {background-color: white; border: black solid 1pt; padding-left: 10px;
-        padding-right: 10px; vertical-align: top;}
-    table {width: 90%; border: 0px; cellpadding: 0px;}
+        padding-right: 10px; vertical-align: top;  color: white;
+}
+    table {width: 90%; border: 0px; cellpadding: 0px;  color: white;
+}
 }
 #INPUT 
 {
@@ -19,6 +22,7 @@ html *
   background-color: #7281E2;
 }
 body { 
+    color: white;
   background-image: url(fondo.jpg);
   background-repeat: no-repeat;
     background-attachment:fixed;
@@ -57,9 +61,12 @@ a:active {color:#0000FF;}  /* selected link */
 
 nav {
     text-align: center;
+      color: white;
+
 }
 
 nav li {
+    color: white;
     list-style: none;
     display: inline;
     margin: 0 1em;
