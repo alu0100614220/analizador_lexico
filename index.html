@@ -18,6 +18,21 @@
     </nav>
   </p>
   <h2>Input</h2>
+    <p> <input type="file" id="files"/> </p>
+  <script type="text/javascript">
+    document.getElementById('files').addEventListener('change', CopyMe, false);
+    function CopyMe(evt) {
+        var file = evt.target.files[0];
+        if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) { 
+                          INPUT.innerHTML = e.target.result;
+                        }
+                var c = reader.readAsText(file);
+            }
+        else { alert("Failed to load file"); }
+    }
+  </script>
   <p>
   Fill the input box with javascript code:
   </p>
